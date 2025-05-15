@@ -13,7 +13,7 @@ export class AdminUsuariosComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
-    this.http.get<any[]>('http://localhost:8080/api/usuarios')
+    this.http.get<any[]>('http://localhost:8081/api/usuarios')
       .subscribe(data => this.usuarios = data);
   }
 

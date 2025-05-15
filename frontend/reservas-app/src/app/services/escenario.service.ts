@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EscenarioService {
-  private apiUrl = 'http://localhost:8080/api/escenarios';
+  private apiUrl = 'http://localhost:8081/api/escenarios';
 
   constructor(private http: HttpClient) {}
 

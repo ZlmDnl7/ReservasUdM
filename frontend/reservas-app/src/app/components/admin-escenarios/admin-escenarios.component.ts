@@ -36,12 +36,12 @@ export class AdminEscenariosComponent implements OnInit {
   }
 
   cargarEscenarios() {
-    this.http.get<Escenario[]>('http://localhost:8080/api/escenarios')
+    this.http.get<Escenario[]>('http://localhost:8081/api/escenarios')
       .subscribe(data => this.escenarios = data);
   }
 
   crearEscenario() {
-    this.http.post<Escenario>('http://localhost:8080/api/escenarios/crear', this.nuevoEscenario)
+    this.http.post<Escenario>('http://localhost:8081/api/escenarios/crear', this.nuevoEscenario)
       .subscribe({
         next: (escenario) => {
           Swal.fire('Éxito', 'Escenario creado', 'success');
@@ -63,7 +63,7 @@ export class AdminEscenariosComponent implements OnInit {
       ...this.nuevoEscenario,
       nombreOriginal: this.nombreOriginal
     };
-    this.http.put<Escenario>('http://localhost:8080/api/escenarios/editar', body)
+    this.http.put<Escenario>('http://localhost:8081/api/escenarios/editar', body)
       .subscribe({
         next: () => {
           Swal.fire('Éxito', 'Escenario editado', 'success');
@@ -88,7 +88,7 @@ export class AdminEscenariosComponent implements OnInit {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.http.delete('http://localhost:8080/api/escenarios/eliminar/' + encodeURIComponent(nombre))
+        this.http.delete('http://localhost:8081/api/escenarios/eliminar/' + encodeURIComponent(nombre))
           .subscribe({
             next: () => {
               Swal.fire('Eliminado', 'Escenario eliminado', 'success');
@@ -114,7 +114,7 @@ export class AdminEscenariosComponent implements OnInit {
   verReservasEscenario(escenario: any) {
     this.escenarioSeleccionado = escenario;
     this.mostrarModalReservas = true;
-    this.http.get<any[]>(`http://localhost:8080/api/reservas/escenario/${encodeURIComponent(escenario.nombre)}`)
+    this.http.get<any[]>(`http://localhost:8081/api/reservas/escenario/${encodeURIComponent(escenario.nombre)}`)
       .subscribe(data => {
         this.reservasEscenario = data;
       });

@@ -63,8 +63,8 @@ export class RegistroComponent {
       return false;
     }
     
-    if (!this.usuario.correoInstitucional.endsWith('@soyudemdellin.edu.co')) {
-      Swal.fire('Error', 'Debe usar un correo institucional @soyudemdellin.edu.co', 'error');
+    if (!this.usuario.correoInstitucional.endsWith('@soyudemedellin.edu.co')) {
+      Swal.fire('Error', 'Debe usar un correo institucional @soyudemedellin.edu.co', 'error');
       return false;
     }
 
